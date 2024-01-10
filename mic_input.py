@@ -1,3 +1,4 @@
+import os
 from pocketsphinx import LiveSpeech
 
 # Configuração do reconhecimento
@@ -17,6 +18,12 @@ for phrase in speech:
     
     if recognized_text:
         print("you said:", recognized_text)
+
+        # Verifica o comando e executa a ação correspondente
+        if recognized_text.lower() == "execute chrome":
+            os.system("start Chrome.exe")  # Substitua pelo comando correto se necessário
+            print("Executing...")
+
         break
 
 # Caso nenhum comando seja reconhecido
